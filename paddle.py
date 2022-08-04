@@ -1,23 +1,38 @@
 from turtle import Turtle
 
 STARTING_POSITION = [
-    [(680, 0), (680, 20), (680, 40), (680, -20), (680, -40)],
-    [(-680, 0), (-680, 20), (-680, 40), (-680, -20), (-680, -40)]
+    [(680, 40), (680, 20), (680, 00), (680, -20), (680, -40)],
+    [(-680, 40), (-680, 20), (-680, 00), (-680, -20), (-680, -40)]
 ]
+MOVE = 40
 
-class Paddle(Turtle):
+class Paddle:
 
     def __init__(self):
-        pass
+        self.paddle = []
 
-    def get_paddle(self, number):
-        for position in STARTING_POSITION[number-1]:
-            self.paddle = Turtle("square")
-            self.paddle.color("white")
-            self.paddle.speed(50)
-            self.paddle.penup()
-            self.paddle.goto(position)
+    def create_paddle(self, number):
+        for position in STARTING_POSITION[number - 1]:
+            element = Turtle("square")
+            element.color("white")
+            element.speed(50)
+            element.penup()
+            element.goto(position)
+            self.paddle.append(element)
 
-    def paddle_up(self):
-        for i in
+    def move_up(self):
+        for element in self.paddle:
+            element.setheading(90)
+            element.forward(MOVE)
+
+    def move_down(self):
+        for element in self.paddle:
+            element.backward(MOVE)
+
+    def check_collision(self, ball_position):
+        for element in self.paddle:
+            if element.distance(ball_position) < 10:
+                print("collision")
+
+
 
