@@ -27,12 +27,13 @@ class Paddle:
 
     def move_down(self):
         for element in self.paddle:
+            element.setheading(90)
             element.backward(MOVE)
 
     def check_collision(self, ball_position):
         for element in self.paddle:
-            if element.distance(ball_position) < 10:
-                print("collision")
+            if element.distance(ball_position) < 20:
+                return True
 
 
 

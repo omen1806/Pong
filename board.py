@@ -1,6 +1,7 @@
 from turtle import Turtle
 
-class Board(Turtle):
+
+class Board:
 
     def __init__(self):
         self.board = Turtle()
@@ -17,6 +18,3 @@ class Board(Turtle):
             self.board.forward(20)
             self.board.penup()
             self.board.forward(20)
-
-
-
